@@ -1,16 +1,16 @@
-#include "NeuralNetwork/Matrix.h"
+#include "matrix.h"
 #include <iostream>
 
-namespace NeuralNetwork {
+namespace neural_network {
 
-    Matrix::Matrix()
+    matrix::matrix()
     {
-        std::cout << "Matrix constructed!\n";
+        std::cout << "matrix constructed!\n";
     }
 
-    Matrix::~Matrix()
+    matrix::~matrix()
     {
-        std::cout << "Matrix destroyed!\n";
+        std::cout << "matrix destroyed!\n";
     }
 
 }

@@ -16,8 +16,8 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_library(NeuralNetworkLib
-    src/Matrix.cpp
-    src/NeuralNetwork.cpp
+    "src/matrix.cpp"
+    "src/base_network.cpp"
 )
 
 target_include_directories(NeuralNetworkLib

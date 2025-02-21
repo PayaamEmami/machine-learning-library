@@ -1,13 +1,13 @@
 #include <iostream>
-#include "NeuralNetwork/Matrix.h"
-#include "NeuralNetwork/NeuralNetwork.h"
+#include "matrix.h"
+#include "base_network.h"
 
 int main()
 {
-    std::cout << "Hello from NeuralNetworkDemo!\n";
+    std::cout << "Hello world\n";
 
-    NeuralNetwork::Matrix matrix;
-    NeuralNetwork::Network network;
+    neural_network::matrix matrix;
+    neural_network::base_network network;
 
     std::cout << "Press Enter to exit...";
     std::cin.get();
