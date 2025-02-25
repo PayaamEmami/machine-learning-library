@@ -5,12 +5,12 @@ namespace neural_network {
 
     base_network::base_network()
     {
-        std::cout << "base_network constructed!\n";
+        std::cout << "base network constructed!\n";
     }
 
     base_network::~base_network()
     {
-        std::cout << "base_network destroyed!\n";
+        std::cout << "base network destroyed!\n";
     }
 
 }

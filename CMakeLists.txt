@@ -18,7 +18,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_library(NeuralNetworkLib
     "src/matrix.cpp"
     "src/base_network.cpp"
-)
+ "include/single_layer_perceptron.h" "include/multi_layer_perceptron.h" "src/single_layer_perceptron.cpp" "src/multi_layer_perceptron.cpp")
 
 target_include_directories(NeuralNetworkLib
     PUBLIC
@@ -27,6 +27,6 @@ target_include_directories(NeuralNetworkLib
 
 add_executable(NeuralNetworkDemo
     src/main.cpp
-)
+ "include/single_layer_perceptron.h" "include/multi_layer_perceptron.h" "src/single_layer_perceptron.cpp" "src/multi_layer_perceptron.cpp")
 
 target_link_libraries(NeuralNetworkDemo PRIVATE NeuralNetworkLib)
