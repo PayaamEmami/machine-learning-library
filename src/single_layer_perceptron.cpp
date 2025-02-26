@@ -4,7 +4,7 @@
 namespace neural_network
 {
   single_layer_perceptron::single_layer_perceptron(int input_size, int output_size) :
-    weights(input_size, output_size), biases(1, output_size)
+    weights_(input_size, output_size), biases_(1, output_size)
   {
     std::cout << "SLP constructed!\n";
   }

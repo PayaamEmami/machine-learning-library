@@ -12,8 +12,8 @@ namespace neural_network
     ~multi_layer_perceptron();
 
   private:
-    std::vector<matrix> weights;
-    std::vector<matrix> biases;
+    std::vector<matrix> weights_;
+    std::vector<matrix> biases_;
   };
 
 }

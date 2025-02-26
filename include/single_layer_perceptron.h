@@ -11,7 +11,7 @@ namespace neural_network
     ~single_layer_perceptron();
 
   private:
-    matrix weights;
-    matrix biases;
+    matrix weights_;
+    matrix biases_;
   };
 }
