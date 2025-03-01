@@ -16,9 +16,9 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_library(NeuralNetworkLib
-    "src/matrix.cpp"
-    "src/base_network.cpp"
- "include/single_layer_perceptron.h" "include/multi_layer_perceptron.h" "src/single_layer_perceptron.cpp" "src/multi_layer_perceptron.cpp")
+    "src/models/utils/matrix.cpp"
+    "src/models/neural_network/base_network.cpp"
+ "include/models/neural_network/single_layer_perceptron.h" "include/models/neural_network/multi_layer_perceptron.h" "src/models/neural_network/single_layer_perceptron.cpp" "src/models/neural_network/multi_layer_perceptron.cpp" "include/models/base_model.h" "include/models/neural_network/rnn.h" "include/models/neural_network/lstm.h" "include/models/neural_network/transformer.h" "include/models/knn/knn.h" "include/models/naive_bayes/naive_bayes.h" "include/models/svm/svm.h" "include/models/linear/linear_regression.h" "include/models/linear/logistic_regression.h" "include/models/ensemble/gradient_boosting.h" "include/models/ensemble/random_forest.h" "src/models/base_model.cpp" "src/models/knn/knn.cpp" "src/models/neural_network/rnn.cpp" "src/models/neural_network/lstm.cpp" "src/models/neural_network/transformer.cpp" "src/models/svm/svm.cpp" "src/models/linear/linear_regression.cpp" "src/models/linear/logistic_regression.cpp" "src/models/ensemble/gradient_boosting.cpp" "src/models/ensemble/random_forest.cpp")
 
 target_include_directories(NeuralNetworkLib
     PUBLIC
@@ -27,6 +27,6 @@ target_include_directories(NeuralNetworkLib
 
 add_executable(NeuralNetworkDemo
     src/main.cpp
- "include/single_layer_perceptron.h" "include/multi_layer_perceptron.h" "src/single_layer_perceptron.cpp" "src/multi_layer_perceptron.cpp")
+ "include/models/neural_network/single_layer_perceptron.h" "include/models/neural_network/multi_layer_perceptron.h" "src/models/neural_network/single_layer_perceptron.cpp" "src/models/neural_network/multi_layer_perceptron.cpp" "include/models/base_model.h" "include/models/neural_network/rnn.h" "include/models/neural_network/lstm.h" "include/models/neural_network/transformer.h" "include/models/knn/knn.h" "include/models/naive_bayes/naive_bayes.h" "include/models/svm/svm.h" "include/models/linear/linear_regression.h" "include/models/linear/logistic_regression.h" "include/models/ensemble/gradient_boosting.h" "include/models/ensemble/random_forest.h" "src/models/base_model.cpp" "src/models/knn/knn.cpp" "src/models/neural_network/rnn.cpp" "src/models/neural_network/lstm.cpp" "src/models/neural_network/transformer.cpp" "src/models/svm/svm.cpp" "src/models/linear/linear_regression.cpp" "src/models/linear/logistic_regression.cpp" "src/models/ensemble/gradient_boosting.cpp" "src/models/ensemble/random_forest.cpp")
 
 target_link_libraries(NeuralNetworkDemo PRIVATE NeuralNetworkLib)
