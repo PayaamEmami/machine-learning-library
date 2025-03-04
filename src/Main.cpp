@@ -5,8 +5,8 @@ int main()
 {
   std::cout << "Hello world\n";
 
-  models::utils::matrix matrix1({ {1, 2}, {3, 4} });
-  models::utils::matrix matrix2({ { 5, 6 }, { 7, 8 } });
+  models::utils::matrix matrix1({{1, 2}, {3, 4}});
+  models::utils::matrix matrix2({{5, 6}, {7, 8}});
   models::utils::matrix result = matrix1 * matrix2;
 
   std::cout << "Matrix 1:\n";

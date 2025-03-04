@@ -3,16 +3,14 @@
 
 #include "models/neural_network/base_network.h"
 
-namespace models {
-  namespace neural_network {
-
-    class RNN : public BaseNetwork {
-    public:
-      RNN();
-      ~RNN();
-    };
-
-  } // namespace neural_network
-} // namespace models
+namespace models::neural_network
+{
+  class RNN : public BaseNetwork
+  {
+  public:
+    RNN();
+    ~RNN() override;
+  };
+}
 
 #endif // MODELS_NEURAL_NETWORK_RNN_H_

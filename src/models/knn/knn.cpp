@@ -1,11 +1,12 @@
 #include "models/knn/knn.h"
 
-namespace models {
-  namespace knn {
+namespace models::knn
+{
+  KNN::KNN()
+  {
+  }
 
-    KNN::KNN() {}
-
-    KNN::~KNN() {}
-
-  } // namespace knn
-} // namespace models
+  KNN::~KNN()
+  {
+  }
+}

@@ -1,11 +1,12 @@
 #include "models/ensemble/random_forest.h"
 
-namespace models {
-  namespace ensemble {
+namespace models::ensemble
+{
+  RandomForest::RandomForest()
+  {
+  }
 
-    RandomForest::RandomForest() {}
-
-    RandomForest::~RandomForest() {}
-
-  } // namespace ensemble
-} // namespace models
+  RandomForest::~RandomForest()
+  {
+  }
+}

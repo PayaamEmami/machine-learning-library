@@ -3,16 +3,14 @@
 
 #include "models/base_model.h"
 
-namespace models {
-  namespace neural_network {
-
-    class BaseNetwork : public models::BaseModel {
-    public:
-      BaseNetwork();
-      virtual ~BaseNetwork();
-    };
-
-  } // namespace neural_network
-} // namespace models
+namespace models::neural_network
+{
+  class BaseNetwork : public BaseModel
+  {
+  public:
+    BaseNetwork();
+    ~BaseNetwork() override;
+  };
+}
 
 #endif // MODELS_NEURAL_NETWORK_BASE_NETWORK_H_

@@ -3,16 +3,14 @@
 
 #include "models/neural_network/base_network.h"
 
-namespace models {
-  namespace neural_network {
-
-    class LSTM : public BaseNetwork {
-    public:
-      LSTM();
-      ~LSTM();
-    };
-
-  } // namespace neural_network
-} // namespace models
+namespace models::neural_network
+{
+  class LSTM : public BaseNetwork
+  {
+  public:
+    LSTM();
+    ~LSTM() override;
+  };
+}
 
 #endif // MODELS_NEURAL_NETWORK_LSTM_H_

@@ -3,16 +3,14 @@
 
 #include "models/base_model.h"
 
-namespace models {
-  namespace svm {
-
-    class SVM : public models::BaseModel {
-    public:
-      SVM();
-      ~SVM();
-    };
-
-  } // namespace svm
-} // namespace models
+namespace models::svm
+{
+  class SVM : public BaseModel
+  {
+  public:
+    SVM();
+    ~SVM() override;
+  };
+}
 
 #endif // MODELS_SVM_SVM_H_

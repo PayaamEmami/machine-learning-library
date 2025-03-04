@@ -3,16 +3,14 @@
 
 #include "models/base_model.h"
 
-namespace models {
-  namespace linear {
-
-    class LogisticRegression : public models::BaseModel {
-    public:
-      LogisticRegression();
-      ~LogisticRegression();
-    };
-
-  } // namespace linear
-} // namespace models
+namespace models::linear
+{
+  class LogisticRegression : public BaseModel
+  {
+  public:
+    LogisticRegression();
+    ~LogisticRegression() override;
+  };
+}
 
 #endif // MODELS_LINEAR_LOGISTIC_REGRESSION_H_

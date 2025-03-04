@@ -3,16 +3,14 @@
 
 #include "models/base_model.h"
 
-namespace models {
-  namespace knn {
-
-    class KNN : public models::BaseModel {
-    public:
-      KNN();
-      ~KNN();
-    };
-
-  } // namespace knn
-} // namespace models
+namespace models::knn
+{
+  class KNN : public BaseModel
+  {
+  public:
+    KNN();
+    ~KNN() override;
+  };
+}
 
 #endif // MODELS_KNN_KNN_H_

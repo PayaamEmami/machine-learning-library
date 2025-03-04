@@ -3,16 +3,14 @@
 
 #include "models/base_model.h"
 
-namespace models {
-  namespace naive_bayes {
-
-    class NaiveBayes : public models::BaseModel {
-    public:
-      NaiveBayes();
-      ~NaiveBayes();
-    };
-
-  } // namespace naive_bayes
-} // namespace models
+namespace models::naive_bayes
+{
+  class NaiveBayes : public BaseModel
+  {
+  public:
+    NaiveBayes();
+    ~NaiveBayes() override;
+  };
+}
 
 #endif // MODELS_NAIVE_BAYES_NAIVE_BAYES_H_

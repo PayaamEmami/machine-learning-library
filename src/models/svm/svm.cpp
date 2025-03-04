@@ -1,11 +1,12 @@
 #include "models/svm/svm.h"
 
-namespace models {
-  namespace svm {
+namespace models::svm
+{
+  SVM::SVM()
+  {
+  }
 
-    SVM::SVM() {}
-
-    SVM::~SVM() {}
-
-  } // namespace svm
-} // namespace models
+  SVM::~SVM()
+  {
+  }
+}

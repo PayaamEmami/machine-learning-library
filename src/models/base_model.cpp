@@ -1,9 +1,12 @@
 #include "models/base_model.h"
 
-namespace models {
+namespace models
+{
+  BaseModel::BaseModel()
+  {
+  }
 
-  BaseModel::BaseModel() {}
-
-  BaseModel::~BaseModel() {}
-
+  BaseModel::~BaseModel()
+  {
+  }
 } // namespace models

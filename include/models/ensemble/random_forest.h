@@ -3,16 +3,14 @@
 
 #include "models/base_model.h"
 
-namespace models {
-  namespace ensemble {
-
-    class RandomForest : public models::BaseModel {
-    public:
-      RandomForest();
-      ~RandomForest();
-    };
-
-  } // namespace ensemble
-} // namespace models
+namespace models::ensemble
+{
+  class RandomForest : public BaseModel
+  {
+  public:
+    RandomForest();
+    ~RandomForest() override;
+  };
+}
 
 #endif // MODELS_ENSEMBLE_RANDOM_FOREST_H_

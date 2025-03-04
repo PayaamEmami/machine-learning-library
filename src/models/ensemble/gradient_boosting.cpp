@@ -1,11 +1,12 @@
 #include "models/ensemble/gradient_boosting.h"
 
-namespace models {
-  namespace ensemble {
+namespace models::ensemble
+{
+  GradientBoosting::GradientBoosting()
+  {
+  }
 
-    GradientBoosting::GradientBoosting() {}
-
-    GradientBoosting::~GradientBoosting() {}
-
-  } // namespace ensemble
-} // namespace models
+  GradientBoosting::~GradientBoosting()
+  {
+  }
+}

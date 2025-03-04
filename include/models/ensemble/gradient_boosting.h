@@ -3,16 +3,14 @@
 
 #include "models/base_model.h"
 
-namespace models {
-  namespace ensemble {
-
-    class GradientBoosting : public models::BaseModel {
-    public:
-      GradientBoosting();
-      ~GradientBoosting();
-    };
-
-  } // namespace ensemble
-} // namespace models
+namespace models::ensemble
+{
+  class GradientBoosting : public BaseModel
+  {
+  public:
+    GradientBoosting();
+    ~GradientBoosting() override;
+  };
+}
 
 #endif // MODELS_ENSEMBLE_GRADIENT_BOOSTING_H_
