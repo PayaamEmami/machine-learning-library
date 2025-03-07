@@ -1,12 +1,8 @@
 #include "models/base_model.h"
 
-namespace models
-{
-  BaseModel::BaseModel()
-  {
-  }
+namespace ml {
 
-  BaseModel::~BaseModel()
-  {
-  }
-} // namespace models
+  // Empty source file for BaseModel because it is an abstract class
+  // with pure virtual methods.
+
+}  // namespace ml

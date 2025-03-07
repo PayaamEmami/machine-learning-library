@@ -1,12 +1,10 @@
 ﻿#include "models/neural_network/base_network.h"
 
-namespace models::neural_network
-{
-  BaseNetwork::BaseNetwork()
-  {
-  }
+namespace ml {
+  namespace nn {
 
-  BaseNetwork::~BaseNetwork()
-  {
-  }
-}
+    // Empty source file for BaseNetwork because it is
+    // an abstract class with pure virtual methods.
+
+  }  // namespace nn
+}  // namespace ml
