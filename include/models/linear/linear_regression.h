@@ -4,20 +4,21 @@
 #include "models/base_model.h"
 #include <vector>
 
-namespace ml {
-
-  class LinearRegression : public BaseModel {
+namespace ml
+{
+  class LinearRegression : public BaseModel
+  {
   public:
     LinearRegression();
     ~LinearRegression() override;
 
     void fit(const std::vector<std::vector<double>>& X,
-      const std::vector<int>& y) override;
+             const std::vector<int>& y) override;
 
     std::vector<int> predict(const std::vector<std::vector<double>>& X) override;
 
     double score(const std::vector<std::vector<double>>& X,
-      const std::vector<int>& y) override;
+                 const std::vector<int>& y) override;
 
     void save_model(const std::string& path) const override;
 
@@ -31,7 +32,6 @@ namespace ml {
     std::vector<double> weights_;
     double bias_;
   };
-
-}  // namespace ml
+} // namespace ml
 
 #endif  // MODELS_LINEAR_LINEAR_REGRESSION_H_
