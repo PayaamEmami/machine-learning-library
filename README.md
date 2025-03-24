@@ -23,7 +23,6 @@ A C++ machine learning library focused on classical ML algorithms, neural networ
 - GPU acceleration
 
 ## Development Notes
-- Following Google C++ Style Guide
 - Using CMake for build configuration
 
 ## Contributing
