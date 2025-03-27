@@ -1,21 +1,37 @@
 #include "models/ensemble/random_forest.h"
-
-#include <iostream>
-#include <stdexcept>
+#include <cmath>
+#include <algorithm>
+#include <fstream>
+#include <sstream>
+#include <map>
+#include <random>
+#include <numeric>
 
 namespace ml {
 
   RandomForest::RandomForest()
-    : n_estimators_(100) {
+    : n_estimators_(100),
+      max_features_(-1),  // -1 means use sqrt(n_features)
+      max_depth_(5),
+      min_samples_split_(2),
+      min_samples_leaf_(1) {
   }
 
   RandomForest::~RandomForest() = default;
 
   void RandomForest::fit(const std::vector<std::vector<double>>& X,
     const std::vector<int>& y) {
-    std::cout << "[RandomForest] fit() not implemented yet.\n";
-  }
+    if (X.empty() || y.empty()) {
+      throw std::invalid_argument("Empty training data");
+    }
 
+    // Set max_features if not specified
+    if (max_features_ == -1) {
+      max_features_ = static_cast<int>(std::sqrt(X[0].size()));
+    }
+
+    // Clear previous state
+    trees_.clear();
   std::vector<int> RandomForest::predict(const std::vector<std::vector<double>>& X) {
     std::cout << "[RandomForest] predict() not implemented yet.\n";
     return std::vector<int>(X.size(), 0);

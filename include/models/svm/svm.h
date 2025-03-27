@@ -28,7 +28,22 @@ namespace ml {
     std::vector<double> get_params() const override;
 
   private:
-    double c_value_;  // Example regularization parameter
+    // SVM parameters
+    double c_value_;  // Regularization parameter
+    double learning_rate_;  // Learning rate for gradient descent
+    int max_iterations_;  // Maximum number of iterations
+    double tolerance_;  // Convergence tolerance
+
+    // Model state
+    std::vector<double> weights_;  // Weight vector
+    double bias_;  // Bias term
+    std::vector<std::vector<double>> support_vectors_;  // Support vectors
+    std::vector<int> support_vector_labels_;  // Labels of support vectors
+
+    // Helper methods
+    double compute_kernel(const std::vector<double>& x1, const std::vector<double>& x2) const;
+    double compute_decision_function(const std::vector<double>& x) const;
+    void update_weights(const std::vector<std::vector<double>>& X, const std::vector<int>& y);
   };
 
 }  // namespace ml

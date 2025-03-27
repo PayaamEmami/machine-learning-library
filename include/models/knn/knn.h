@@ -28,7 +28,9 @@ namespace ml {
     std::vector<double> get_params() const override;
 
   private:
-    int k_;  // Example parameter for KNN
+    int k_;  // Number of nearest neighbors
+    std::vector<std::vector<double>> X_train_;  // Training features
+    std::vector<int> y_train_;  // Training labels
   };
 
 }  // namespace ml

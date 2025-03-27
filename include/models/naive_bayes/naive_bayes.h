@@ -3,6 +3,7 @@
 
 #include "models/base_model.h"
 #include <vector>
+#include <map>
 
 namespace ml {
 
@@ -26,6 +27,18 @@ namespace ml {
     void set_params(const std::vector<double>& params) override;
 
     std::vector<double> get_params() const override;
+
+  private:
+    // Model parameters
+    double smoothing_;  // Laplace smoothing parameter
+    std::map<int, double> class_priors_;  // Prior probabilities for each class
+    std::vector<std::vector<double>> feature_means_;  // Mean of each feature for each class
+    std::vector<std::vector<double>> feature_vars_;   // Variance of each feature for each class
+
+    // Helper methods
+    double compute_likelihood(const std::vector<double>& x, int class_idx) const;
+    void compute_class_statistics(const std::vector<std::vector<double>>& X,
+                                const std::vector<int>& y);
   };
 
 }  // namespace ml
