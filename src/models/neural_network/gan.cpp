@@ -1,4 +1,4 @@
-#include "gan.h"
+#include "../../../include/models/neural_network/gan.h"
 #include <stdexcept>
 #include <random>
 
@@ -27,7 +27,7 @@ std::vector<double> GAN::generate_noise(int batch_size) {
     std::random_device rd;
     std::mt19937 gen(rd());
     std::normal_distribution<double> dist(0.0, 1.0);
-    
+
     std::vector<double> noise(batch_size * latent_dim_);
     for (size_t i = 0; i < noise.size(); ++i) {
         noise[i] = dist(gen);
@@ -51,18 +51,18 @@ std::vector<double> GAN::discriminate(const std::vector<double>& input) {
     return current;
 }
 
-void GAN::train_discriminator(const std::vector<double>& real_data, 
+void GAN::train_discriminator(const std::vector<double>& real_data,
                             const std::vector<double>& fake_data) {
     // Train on real data
     std::vector<double> real_output = discriminate(real_data);
     std::vector<double> real_target(real_output.size(), 1.0);
     std::vector<double> real_grad = discriminator_layers_.back()->backward(real_target);
-    
+
     // Train on fake data
     std::vector<double> fake_output = discriminate(fake_data);
     std::vector<double> fake_target(fake_output.size(), 0.0);
     std::vector<double> fake_grad = discriminator_layers_.back()->backward(fake_target);
-    
+
     // Update discriminator weights
     for (auto& layer : discriminator_layers_) {
         discriminator_optimizer_->update(layer);
@@ -73,15 +73,15 @@ void GAN::train_generator(const std::vector<double>& fake_data) {
     // Generate fake data
     std::vector<double> fake_output = discriminate(fake_data);
     std::vector<double> target(fake_output.size(), 1.0);  // Try to fool discriminator
-    
+
     // Backward pass through discriminator
     std::vector<double> grad = discriminator_layers_.back()->backward(target);
-    
+
     // Backward pass through generator
     for (auto it = generator_layers_.rbegin(); it != generator_layers_.rend(); ++it) {
         grad = (*it)->backward(grad);
     }
-    
+
     // Update generator weights
     for (auto& layer : generator_layers_) {
         generator_optimizer_->update(layer);
@@ -92,10 +92,10 @@ void GAN::train_step(const std::vector<double>& real_data, int batch_size) {
     // Generate fake data
     std::vector<double> noise = generate_noise(batch_size);
     std::vector<double> fake_data = generate(noise);
-    
+
     // Train discriminator
     train_discriminator(real_data, fake_data);
-    
+
     // Train generator
     train_generator(fake_data);
 }
@@ -109,7 +109,7 @@ void GAN::fit(const std::vector<std::vector<double>>& real_data,
             for (size_t j = 0; j < batch_size && (i + j) < real_data.size(); ++j) {
                 batch.insert(batch.end(), real_data[i + j].begin(), real_data[i + j].end());
             }
-            
+
             // Train on batch
             train_step(batch, batch_size);
         }
@@ -123,4 +123,4 @@ std::vector<double> GAN::generate_samples(int num_samples) {
 }
 
 } // namespace nn
-} // namespace ml 
+} // namespace ml

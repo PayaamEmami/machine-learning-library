@@ -1,11 +1,8 @@
-#include "models/neural_network/cnn.h"
+#include "../../../include/models/neural_network/cnn.h"
 #include <stdexcept>
 
 namespace ml {
 namespace nn {
-
-// Empty implementation file since all methods are defined in the header
-// This file is kept for consistency with the project structure
 
 CNN::CNN() : input_shape_({0, 0, 0}) {}
 
@@ -44,21 +41,21 @@ std::vector<double> CNN::backward(const std::vector<double>& grad_output) {
 void CNN::train_step(const std::vector<double>& input, const std::vector<double>& target) {
     // Forward pass
     std::vector<double> output = forward(input);
-    
+
     // Compute loss and its gradient
     double loss = loss_function_->compute(output, target);
     std::vector<double> grad_output = loss_function_->gradient(output, target);
-    
+
     // Backward pass
     backward(grad_output);
-    
+
     // Update weights using optimizer
     for (auto& layer : layers_) {
         optimizer_->update(layer);
     }
 }
 
-void CNN::fit(const std::vector<std::vector<double>>& inputs, 
+void CNN::fit(const std::vector<std::vector<double>>& inputs,
               const std::vector<std::vector<double>>& targets,
               int epochs, int batch_size) {
     if (inputs.size() != targets.size()) {
@@ -84,4 +81,4 @@ std::vector<double> CNN::predict(const std::vector<double>& input) {
 }
 
 } // namespace nn
-} // namespace ml 
+} // namespace ml

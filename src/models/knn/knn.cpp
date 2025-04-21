@@ -1,4 +1,4 @@
-#include "models/knn/knn.h"
+#include "../../include/models/knn/knn.h"
 #include <cmath>
 #include <algorithm>
 #include <fstream>
@@ -7,7 +7,8 @@
 namespace ml {
 
   KNN::KNN()
-    : k_(5) {  // Default K
+    : k_(5),  // Default K
+      max_class_(0) {  // Initialize max class
   }
 
   KNN::~KNN() = default;
@@ -17,6 +18,12 @@ namespace ml {
     // KNN is a lazy learner, so we just store the training data
     X_train_ = X;
     y_train_ = y;
+
+    // Find maximum class label in training data
+    max_class_ = 0;
+    for (int label : y_train_) {
+      max_class_ = std::max(max_class_, label);
+    }
   }
 
   std::vector<int> KNN::predict(const std::vector<std::vector<double>>& X) {
@@ -37,9 +44,9 @@ namespace ml {
 
       // Sort by distance and get k nearest neighbors
       std::sort(distances.begin(), distances.end());
-      
+
       // Count class frequencies among k nearest neighbors
-      std::vector<int> class_counts(10, 0);  // Assuming max 10 classes
+      std::vector<int> class_counts(max_class_ + 1, 0);
       for (int i = 0; i < k_; ++i) {
         class_counts[y_train_[distances[i].second]]++;
       }
@@ -47,7 +54,7 @@ namespace ml {
       // Find most frequent class
       int max_count = 0;
       int predicted_class = 0;
-      for (int i = 0; i < 10; ++i) {
+      for (int i = 0; i <= max_class_; ++i) {
         if (class_counts[i] > max_count) {
           max_count = class_counts[i];
           predicted_class = i;
@@ -64,13 +71,13 @@ namespace ml {
     const std::vector<int>& y) {
     auto predictions = predict(X);
     int correct = 0;
-    
+
     for (size_t i = 0; i < y.size(); ++i) {
       if (predictions[i] == y[i]) {
         correct++;
       }
     }
-    
+
     return static_cast<double>(correct) / y.size();
   }
 

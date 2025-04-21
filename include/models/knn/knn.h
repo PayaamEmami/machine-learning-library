@@ -29,6 +29,7 @@ namespace ml {
 
   private:
     int k_;  // Number of nearest neighbors
+    int max_class_;  // Maximum class label in training data
     std::vector<std::vector<double>> X_train_;  // Training features
     std::vector<int> y_train_;  // Training labels
   };

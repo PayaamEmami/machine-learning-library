@@ -1,6 +1,8 @@
 # Machine Learning Library
 
-A C++ machine learning library focused on classical ML algorithms, neural networks, and ensemble methods. Designed for performance, scalability, and ease of use, with tools for training and evaluation.
+A C++ machine learning library focused on classical ML algorithms, neural networks, and ensemble methods.
+
+> **Note:** This project is created purely for learning purposes. It's an educational implementation of machine learning algorithms to better understand their inner workings and implementation details.
 
 ## Current Status
 🚧 In Progress – This project is actively being developed. Features and structure may change as work continues.
@@ -16,11 +18,6 @@ A C++ machine learning library focused on classical ML algorithms, neural networ
 - Dataset handling, preprocessing, feature engineering
 - Loss functions, activation functions, and optimization techniques
 - Performance metrics and visualization utilities
-
-### Performance & Optimization
-- High-performance C++ implementation
-- Parallel computing support
-- GPU acceleration
 
 ## Development Notes
 - Using CMake for build configuration

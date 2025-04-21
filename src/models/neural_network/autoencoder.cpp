@@ -1,4 +1,4 @@
-#include "autoencoder.h"
+#include "../../../include/models/neural_network/autoencoder.h"
 #include <stdexcept>
 
 namespace ml {
@@ -60,20 +60,28 @@ std::vector<double> Autoencoder::backward(const std::vector<double>& grad_output
 void Autoencoder::train_step(const std::vector<double>& input) {
     // Forward pass
     std::vector<double> reconstructed = forward(input);
-    
+
     // Compute reconstruction loss and its gradient
     double loss = loss_function_->compute(reconstructed, input);
     std::vector<double> grad_output = loss_function_->gradient(reconstructed, input);
-    
+
     // Backward pass
     backward(grad_output);
-    
+
     // Update weights using optimizer
     for (auto& layer : encoder_layers_) {
-        optimizer_->update(layer);
+        std::vector<double> weights = layer->get_weights();
+        std::vector<double> bias = layer->get_bias();
+        optimizer_->update(weights, layer->get_grad_weights());
+        layer->set_weights(weights);
+        layer->set_bias(bias);
     }
     for (auto& layer : decoder_layers_) {
-        optimizer_->update(layer);
+        std::vector<double> weights = layer->get_weights();
+        std::vector<double> bias = layer->get_bias();
+        optimizer_->update(weights, layer->get_grad_weights());
+        layer->set_weights(weights);
+        layer->set_bias(bias);
     }
 }
 
@@ -103,4 +111,4 @@ double Autoencoder::evaluate(const std::vector<std::vector<double>>& inputs) {
 }
 
 } // namespace nn
-} // namespace ml 
+} // namespace ml

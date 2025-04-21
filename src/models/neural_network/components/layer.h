@@ -20,6 +20,8 @@ public:
     virtual std::vector<double> get_bias() const = 0;
     virtual void set_weights(const std::vector<double>& weights) = 0;
     virtual void set_bias(const std::vector<double>& bias) = 0;
+    virtual std::vector<double> get_grad_weights() const = 0;
+    virtual std::vector<double> get_grad_bias() const = 0;
 };
 
 // Dense (Fully Connected) Layer
@@ -30,7 +32,7 @@ public:
         // Initialize weights with Xavier/Glorot initialization
         weights_.resize(input_size * output_size);
         bias_.resize(output_size);
-        
+
         double scale = std::sqrt(2.0 / (input_size + output_size));
         for (size_t i = 0; i < weights_.size(); ++i) {
             weights_[i] = (rand() / double(RAND_MAX) * 2.0 - 1.0) * scale;
@@ -119,6 +121,9 @@ public:
     void set_weights(const std::vector<double>& weights) override { weights_ = weights; }
     void set_bias(const std::vector<double>& bias) override { bias_ = bias; }
 
+    std::vector<double> get_grad_weights() const override { return last_grad_weights_; }
+    std::vector<double> get_grad_bias() const override { return last_grad_bias_; }
+
 private:
     int input_size_;
     int output_size_;
@@ -166,6 +171,9 @@ public:
 
     void set_training(bool training) { training_ = training; }
 
+    std::vector<double> get_grad_weights() const override { return {}; }
+    std::vector<double> get_grad_bias() const override { return {}; }
+
 private:
     double rate_;
     bool training_;
@@ -174,4 +182,4 @@ private:
 
 } // namespace layer
 } // namespace nn
-} // namespace ml 
+} // namespace ml
