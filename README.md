@@ -14,13 +14,5 @@ A C++ machine learning library focused on classical ML algorithms, neural networ
 - **Neural Networks:** Single Layer Perceptron (SLP), Multi-Layer Perceptron (MLP), Convolutional Neural Networks (CNN), Recurrent Neural Networks (RNN), Long Short-Term Memory (LSTM), Transformers
 - **Ensemble Methods:** Gradient Boosting, Random Forest
 
-### Training & Evaluation Tools
-- Dataset handling, preprocessing, feature engineering
-- Loss functions, activation functions, and optimization techniques
-- Performance metrics and visualization utilities
-
-## Development Notes
-- Using CMake for build configuration
-
 ## Contributing
 🔒 Currently a solo project – no external contributions planned for now.
