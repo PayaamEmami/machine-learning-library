@@ -126,16 +126,17 @@ class Matrix {
   T *data_{nullptr};
 };
 
-// −−− Naive O(n³) matrix multiplication (replace with BLAS for production) −−−
-
+// Overload for naive O(n³) matrix multiplication
 template <typename T>
-Matrix<T> matmul(const Matrix<T> &A, const Matrix<T> &B) {
+Matrix<T> operator*(const Matrix<T> &A, const Matrix<T> &B) {
   assert(A.cols() == B.rows());
   Matrix<T> C(A.rows(), B.cols(), T{});
   for (std::size_t i = 0; i < A.rows(); ++i) {
     for (std::size_t k = 0; k < A.cols(); ++k) {
       T aik = A(i, k);
-      for (std::size_t j = 0; j < B.cols(); ++j) C(i, j) += aik * B(k, j);
+      for (std::size_t j = 0; j < B.cols(); ++j) {
+        C(i, j) += aik * B(k, j);
+      }
     }
   }
   return C;
